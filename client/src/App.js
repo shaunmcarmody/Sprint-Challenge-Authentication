@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
-import Form from './component/Form/Form';
+import Home from './component/Home/Home';
 import Jokes from './component/Jokes/Jokes';
 import './App.css';
 
@@ -16,7 +16,7 @@ class App extends Component {
             <NavLink to="/jokes">Jokes</NavLink>
           </div>
         </header>
-        <Route exact path="/" component={Form} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/jokes" component={Jokes} />
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class Form extends React.Component {
+class Home extends React.Component {
   state = {
     username: '',
     password: '',
@@ -9,7 +9,8 @@ class Form extends React.Component {
   };
 
   render() {
-    return (
+    const token = localStorage.getItem('token');
+    const Form =
       <form
         onSubmit={this.handleSubmit}
       >
@@ -19,7 +20,7 @@ class Form extends React.Component {
           placeholder="username"
           type="text"
           value={this.state.username}
-        /> 
+        />
         <input
           name="password"
           onChange={this.handleChange}
@@ -34,7 +35,8 @@ class Form extends React.Component {
           Switch to {this.state.login ? 'Signup' : 'Login'}
         </p>
       </form>
-    )
+    const Logout = <button onClick={this.logout}>Logout</button>
+    return <>{token ? Logout : Form}</>
   }
 
   handleChange = e => {
@@ -60,6 +62,11 @@ class Form extends React.Component {
       });
   }
 
+  logout = () => {
+    localStorage.removeItem('token');
+    this.props.history.push("/");
+  }
+
   toggleLogin = () => {
     this.setState(state => {
       return ({
@@ -69,4 +76,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default Home;
