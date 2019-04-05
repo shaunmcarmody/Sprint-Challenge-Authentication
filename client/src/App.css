@@ -27,3 +27,13 @@ form p {
   cursor: pointer;
   font-size: 12px;
 }
+
+ul {
+  list-style-type: none;
+  margin: auto;
+  width: 500px;
+}
+
+li {
+  margin-top: 20px;
+}
