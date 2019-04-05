@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { NavLink, Route } from 'react-router-dom';
+import Form from './component/Form/Form';
+import Jokes from './component/Jokes/Jokes';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header className="header">
+          <div>
+            <NavLink to="/">Home</NavLink>
+          </div>
+          <div>
+            <NavLink to="/jokes">Jokes</NavLink>
+          </div>
         </header>
+        <Route exact path="/" component={Form} />
+        <Route exact path="/jokes" component={Jokes} />
       </div>
     );
   }
